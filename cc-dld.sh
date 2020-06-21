@@ -21,7 +21,7 @@ c1JlcXVpcmVQb3N0QmFja0tleV9fFgEFEUxvZ2luMSRSZW1lbWJlck1lskidMBgKdfLJOHEz1LCw%2\
 BT3%2BC6E%3D&__VIEWSTATEGENERATOR=CD41C6AE&__EVENTVALIDATION=%2FwEWBQLWuuXICAK\
 UvNa1DwL666vYDAKC0q%2BkBgKnz4ybCPn6rcesXXTJLJkHxNSAJBl%2Fnjjj&Login1%24UserNam\
 e=$1&Login1%24Password=$2&Login1%24LoginButton=Entrar" \
-https://contracheque.sistemas.ro.gov.br/AcessoServicos.aspx
+https://contracheque.sistemas.ro.gov.br/AcessoServicos.aspx &> /dev/null
 }
 
 # Baixa os arquivos PDF, na sequência. Tem como baixar somente os listados na 
