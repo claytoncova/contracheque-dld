@@ -1,5 +1,4 @@
 #!/bin/bash
-rm cookie.txt
 WAIT=1
 
 echo -n Usuário: 
@@ -50,4 +49,5 @@ do
     done
 done
 
+rm cookie.txt &> /dev/null
 echo "All done."
