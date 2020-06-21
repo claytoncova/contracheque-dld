@@ -1,5 +1,5 @@
 #!/bin/bash
-WAIT=1
+WAIT=1 # Tempo de espera entre as requisições, em segundos.
 
 echo -n Usuário: 
 read USER
@@ -11,6 +11,7 @@ read START
 echo -n Ano final:
 read STOP
 
+# Post data, tokens para requisição no site. Recupera cookie da autenticação.
 get_cookie () {
   wget -qO- --keep-session-cookies --save-cookies cookies.txt \
 --post-data "ToolkitScriptManager1_HiddenField=&__EVENTTARGET=&__EVENTARGUMENT\
@@ -23,6 +24,8 @@ e=$1&Login1%24Password=$2&Login1%24LoginButton=Entrar" \
 https://contracheque.sistemas.ro.gov.br/AcessoServicos.aspx
 }
 
+# Baixa os arquivos PDF, na sequência. Tem como baixar somente os listados na 
+# primeira busca, TODO.
 get_file () {
   wget -qO- --load-cookies cookies.txt \
 https://contracheque.sistemas.ro.gov.br/RelatorioContraCheque.aspx?\
@@ -40,11 +43,11 @@ do
       get_file $i $j 4
       if [ $j -eq 12 ]
       then
-        get_file $i $j 7 -13o
+        get_file $i $j 7 -13o # Segunda parcela do 13o
       fi
       if [ $j -eq 06 ]
       then
-        get_file $i $j 6 -13o
+        get_file $i $j 6 -13o # Primeira parcela do 13o
       fi
     done
 done
